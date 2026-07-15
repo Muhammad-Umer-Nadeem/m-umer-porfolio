@@ -146,7 +146,7 @@ const About: React.FC = () => {
                     size={16}
                     className="text-neutral-400 dark:text-neutral-500"
                   />
-                  <span className="text-sm">Available for freelance</span>
+                  <span className="text-sm">Available for Freelance</span>
                 </div>
                 <div className="flex items-center gap-3 text-neutral-600 dark:text-neutral-400">
                   <Mail
@@ -217,9 +217,7 @@ const About: React.FC = () => {
             <AnimatedSection delay={0.5}>
               <div className="mt-12 p-8 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900">
                 <blockquote className="text-neutral-600 dark:text-neutral-400 leading-relaxed text-sm italic">
-                  &ldquo;I believe good web experiences come from clean code,
-                  thoughtful design, and attention to performance. Every
-                  interface should be fast, usable, and intentional.&rdquo;
+                  &ldquo;My focus is on building secure, scalable, and maintainable applications that deliver real value to users and businesses.&rdquo;
                 </blockquote>
                 <div className="mt-4 flex items-center gap-3">
                   {/* Avatar placeholder - Replace with Image component if using actual image */}
