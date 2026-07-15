@@ -151,7 +151,7 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({ project, index }) => 
       <div className="relative overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800">
         {/* Project visual area */}
         <div
-          className={`relative h-64 md:h-80 bg-gradient-to-br ${gradients[index % 3]} overflow-hidden`}
+          className={`relative h-64 md:h-80 bg-linear-to-br ${gradients[index % 3]} overflow-hidden`}
         >
           {/* Animated pattern */}
           <motion.div
@@ -260,7 +260,7 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({ project, index }) => 
 
         {/* Animated bottom border */}
         <motion.div
-          className="absolute bottom-0 left-0 right-0 h-[2px] bg-neutral-900 dark:bg-white origin-left"
+          className="absolute bottom-0 left-0 right-0 h-0.5 bg-neutral-900 dark:bg-white origin-left"
           initial={{ scaleX: 0 }}
           animate={{ scaleX: hovered ? 1 : 0 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
@@ -412,7 +412,7 @@ const Projects: React.FC = () => {
               <span className="text-sm font-mono tracking-widest uppercase text-neutral-400 dark:text-neutral-500">
                 02
               </span>
-              <div className="h-[1px] w-12 bg-neutral-300 dark:bg-neutral-700" />
+              <div className="h-px w-12 bg-neutral-300 dark:bg-neutral-700" />
               <h2 className="text-sm font-mono tracking-widest uppercase text-neutral-400 dark:text-neutral-500">
                 Projects
               </h2>

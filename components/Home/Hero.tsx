@@ -237,7 +237,6 @@ const HeroCard: React.FC = () => {
               className="relative w-9 h-9 rounded-full border-2 border-white dark:border-neutral-900 overflow-hidden shadow-sm"
               title={client.name}
             >
-              {/* Use regular img tag for external URLs */}
               <img
                 src={client.src}
                 alt={client.name}
