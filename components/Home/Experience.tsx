@@ -5,17 +5,12 @@ import { motion, useInView } from "framer-motion";
 import { experiences } from "@/components/Data/mock";
 import { Badge } from "@/components/ui/badge";
 
-// Type definitions
-interface Technology {
-  name: string;
-}
-
 interface Experience {
   id: string | number;
   period: string;
   role: string;
   company: string;
-  description: string;
+  responsibilities: string[];
   technologies: string[];
 }
 
@@ -82,10 +77,18 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
           {experience.company}
         </p>
 
-        {/* Description */}
-        <p className="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed mb-4">
-          {experience.description}
-        </p>
+        {/* Responsibilities */}
+        <ul className="mb-5 space-y-2">
+          {experience.responsibilities.map((responsibility, index) => (
+            <li
+              key={index}
+              className="flex items-start gap-3 text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed"
+            >
+              <span className="mt-2 h-1.5 w-1.5 rounded-full bg-neutral-500 dark:bg-neutral-400 shrink-0" />
+              <span>{responsibility}</span>
+            </li>
+          ))}
+        </ul>
 
         {/* Technologies */}
         <div className="flex flex-wrap gap-2">
