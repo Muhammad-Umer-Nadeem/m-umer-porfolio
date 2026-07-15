@@ -73,20 +73,20 @@ export interface Testimonial {
 
 // Data exports
 export const personalInfo: PersonalInfo = {
-  name: "Sarib Ali",
-  firstName: "Sarib",
-  lastName: "Ali",
-  title: "Frontend Developer",
+  name: "Muhammad Umer Nadeem",
+  firstName: "Muhammad Umer",
+  lastName: "Nadeem",
+  title: "Software Engineer",
   tagline:
-    "Frontend Developer building fast, conversion-focused websites and web apps with React, Next.js, WordPress, and Shopify.",
-  email: "notyourbotbut@gmail.com",
-  phone: "+92 323 3232541",
+    "Software Engineer building fast, conversion-focused websites and web apps with React, Next.js, WordPress, and Shopify.",
+  email: "umernadeem005@gmail.com",
+  phone: "+92 348 412005",
   location: "Lahore, Pakistan",
-  bio: "I'm a Frontend Developer focused on building high-performance, user-friendly websites and web applications. I specialize in React, Next.js, and Tailwind CSS, with hands-on experience building custom WordPress themes and Shopify storefronts — from client portals to e-commerce sites. My work prioritizes speed, clean UI, and real business outcomes like better engagement and conversions.",
+  bio: "I'm a Software Engineer focused on building high-performance, user-friendly websites and web applications. I specialize in React, Next.js, and Tailwind CSS, with hands-on experience building custom WordPress themes and Shopify storefronts — from client portals to e-commerce sites. My work prioritizes speed, clean UI, and real business outcomes like better engagement and conversions.",
   resumeUrl: "#",
   social: {
-    github: "https://github.com/sarib2005",
-    linkedin: "https://www.linkedin.com/in/sarib-ali-khan/",
+    github: "https://github.com/Muhammad-Umer-Nadeem",
+    linkedin: "https://www.linkedin.com/in/muhammad-umer-nadeem/",
     twitter: "https://x.com/CraizFox",
     dribbble: "https://dribbble.com",
   },

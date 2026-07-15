@@ -211,7 +211,7 @@ const HeroCard: React.FC = () => {
         
         <Image
           src="/Sarib_Img/Sarib-Ali.webp"
-          alt="Sarib Ali"
+          alt="Muhammad Umer Nadeem"
           fill
           className="object-cover object-top"
           sizes="(max-width: 640px) 256px, 288px"
@@ -336,7 +336,7 @@ const Hero: React.FC = () => {
               </motion.p>
             </div>
 
-            <h1 className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-bold leading-[0.85] tracking-tighter text-neutral-900 dark:text-white mb-8">
+            <h1 className="text-4xl sm:text-4xl md:text-4xl lg:text-[10rem] font-bold leading-[0.85] tracking-tighter text-neutral-900 dark:text-white mb-8">
               <TextReveal delay={0.3}>{personalInfo.firstName}</TextReveal>
               <br />
               <TextReveal delay={0.5}>

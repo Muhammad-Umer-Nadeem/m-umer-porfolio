@@ -34,7 +34,7 @@ const chars = "!<>-_\\/[]{}—=+*^?#@$%&";
 
 // Mock data - replace with your actual data source
 const personalInfo: PersonalInfo = {
-  email: "notyourbotbut@gmail.com",
+  email: "umernadeem005@gmail.com",
   location: "Pakistan",
 };
 
@@ -354,11 +354,11 @@ const Contact: React.FC = () => {
   const socialLinks: SocialLink[] = [
     {
       name: "GitHub",
-      url: "https://github.com/sarib2005",
+      url: "https://github.com/Muhammad-Umer-Nadeem",
     },
     {
       name: "LinkedIn",
-      url: "https://www.linkedin.com/in/sarib-ali-khan/",
+      url: "https://www.linkedin.com/in/muhammad-umer-nadeem/",
     },
   ];
 
