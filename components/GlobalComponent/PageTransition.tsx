@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-const BRAND = "Sarib Ali";
+const BRAND = "Muhammad Umer Nadeem";
 const COLUMNS = 7;
 
 export default function PageTransition({ children }: { children: React.ReactNode }) {
