@@ -101,13 +101,12 @@ const SkillsMarquee: React.FC = () => {
       className="py-16 sm:py-24 bg-[#FAFAFA] dark:bg-[#0A0A0A] overflow-hidden relative"
       aria-label="Skills and Technologies"
     >
-      {/* Fade edges — narrower on mobile so they don't eat the viewport */}
       <div
-        className="absolute left-0 top-0 bottom-0 w-12 sm:w-32 bg-gradient-to-r from-white dark:from-black to-transparent z-10 pointer-events-none"
+        className="absolute left-0 top-0 bottom-0 w-12 sm:w-32 bg-linear-to-r from-white dark:from-black to-transparent z-10 pointer-events-none"
         aria-hidden="true"
       />
       <div
-        className="absolute right-0 top-0 bottom-0 w-12 sm:w-32 bg-gradient-to-l from-white dark:from-black to-transparent z-10 pointer-events-none"
+        className="absolute right-0 top-0 bottom-0 w-12 sm:w-32 bg-linear-to-l from-white dark:from-black to-transparent z-10 pointer-events-none"
         aria-hidden="true"
       />
 
