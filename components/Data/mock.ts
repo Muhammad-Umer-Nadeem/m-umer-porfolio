@@ -106,17 +106,6 @@ export const stats: Stat[] = [
   { value: 3, suffix: "", label: "Companies Experience" },
 ];
 
-export const skills: Skill[] = [
-  { name: "React / Next.js", level: 95 },
-  { name: "TypeScript", level: 90 },
-  { name: "Node.js", level: 88 },
-  { name: "Three.js / WebGL", level: 82 },
-  { name: "Python", level: 85 },
-  { name: "Figma / Design", level: 78 },
-  { name: "AWS / Cloud", level: 80 },
-  { name: "MongoDB / PostgreSQL", level: 85 },
-];
-
 export const skillTags: string[] = [
   "HTML",
   "CSS",
@@ -363,13 +352,6 @@ export const getTestimonialById = (id: number): Testimonial | undefined => {
   return testimonials.find((testimonial) => testimonial.id === id);
 };
 
-// Helper function to get skills by level range
-export const getSkillsByLevel = (minLevel: number, maxLevel: number): Skill[] => {
-  return skills.filter(
-    (skill) => skill.level >= minLevel && skill.level <= maxLevel
-  );
-};
-
 // Helper function to get all unique technologies from experiences
 export const getAllTechnologies = (): string[] => {
   const techSet = new Set<string>();
@@ -386,11 +368,6 @@ export const getAllProjectTags = (): string[] => {
     project.tags.forEach((tag) => tagSet.add(tag));
   });
   return Array.from(tagSet);
-};
-
-// Helper function to format skills as tags
-export const getSkillsAsTags = (): string[] => {
-  return skills.map((skill) => skill.name);
 };
 
 // Helper function to get social link by platform

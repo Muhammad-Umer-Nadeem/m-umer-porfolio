@@ -311,7 +311,7 @@ const Hero: React.FC = () => {
       ref={containerRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#FAFAFA] dark:bg-[#0A0A0A]"
     >
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-size-[60px_60px]" />
 
       <motion.div style={{ y: y3, willChange: "transform" }} className="absolute top-20 right-[15%] w-72 h-72 rounded-full border border-neutral-200/20 dark:border-neutral-700/20" animate={{ rotate: [0, 360] }} transition={{ duration: 40, repeat: Infinity, ease: "linear" }} />
       <motion.div style={{ y: y1, willChange: "transform" }} className="absolute bottom-40 left-[10%] w-48 h-48 rounded-full border border-neutral-200/30 dark:border-neutral-700/30" animate={{ rotate: [360, 0] }} transition={{ duration: 30, repeat: Infinity, ease: "linear" }} />
@@ -340,7 +340,7 @@ const Hero: React.FC = () => {
               <TextReveal delay={0.3}>{personalInfo.firstName}</TextReveal>
               <br />
               <TextReveal delay={0.5}>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-900 via-neutral-500 to-neutral-900 dark:from-white dark:via-neutral-500 dark:to-white">
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-neutral-900 via-neutral-500 to-neutral-900 dark:from-white dark:via-neutral-500 dark:to-white">
                   {personalInfo.lastName}
                 </span>
               </TextReveal>
@@ -376,7 +376,7 @@ const Hero: React.FC = () => {
             </motion.div>
           </div>
 
-          <div className="flex-shrink-0 hidden lg:flex">
+          <div className="shrink-0 hidden lg:flex">
             <HeroCard />
           </div>
         </div>
@@ -384,7 +384,7 @@ const Hero: React.FC = () => {
 
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2 }} className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
         <span className="text-[10px] tracking-[0.3em] uppercase text-neutral-400 dark:text-neutral-500 font-mono">Scroll</span>
-        <motion.div className="w-[1px] h-12 bg-neutral-300 dark:bg-neutral-700 origin-top" animate={{ scaleY: [0, 1, 0] }} transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }} />
+        <motion.div className="w-px h-12 bg-neutral-300 dark:bg-neutral-700 origin-top" animate={{ scaleY: [0, 1, 0] }} transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }} />
       </motion.div>
     </section>
   );

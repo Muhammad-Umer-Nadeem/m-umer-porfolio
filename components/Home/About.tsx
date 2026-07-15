@@ -106,7 +106,7 @@ const About: React.FC = () => {
             <span className="text-sm font-mono tracking-widest uppercase text-neutral-400 dark:text-neutral-500">
               01
             </span>
-            <div className="h-[1px] w-12 bg-neutral-300 dark:bg-neutral-700" />
+            <div className="h-px w-12 bg-neutral-300 dark:bg-neutral-700" />
             <h2 className="text-sm font-mono tracking-widest uppercase text-neutral-400 dark:text-neutral-500">
               About
             </h2>

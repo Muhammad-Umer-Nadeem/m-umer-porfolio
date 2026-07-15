@@ -48,17 +48,17 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
     >
       {/* Timeline line */}
       {!isLast && (
-        <div className="absolute left-[7px] md:left-[11px] top-3 bottom-0 w-[1px] bg-neutral-200 dark:bg-neutral-800" />
+        <div className="absolute left-2 md:left-3 top-3 bottom-0 w-px bg-neutral-200 dark:bg-neutral-800" />
       )}
 
       {/* Timeline dot */}
       <motion.div
-        className="absolute left-0 md:left-1 top-1.5 w-[15px] h-[15px] md:w-[23px] md:h-[23px] rounded-full border-2 border-neutral-300 dark:border-neutral-700 bg-[#FAFAFA] dark:bg-[#0A0A0A] flex items-center justify-center"
+        className="absolute left-0 md:left-1 top-1.5 w-4 h-4 md:w-6 md:h-6 rounded-full border-2 border-neutral-300 dark:border-neutral-700 bg-[#FAFAFA] dark:bg-[#0A0A0A] flex items-center justify-center"
         whileHover={{ scale: 1.2 }}
         transition={{ type: "spring", stiffness: 400, damping: 17 }}
       >
         <motion.div
-          className="w-[5px] h-[5px] md:w-[7px] md:h-[7px] rounded-full bg-neutral-900 dark:bg-white"
+          className="w-1 h-1 md:w-2 md:h-2 rounded-full bg-neutral-900 dark:bg-white"
           initial={{ scale: 0 }}
           animate={isInView ? { scale: 1 } : {}}
           transition={{ delay: index * 0.15 + 0.3, type: "spring" }}
@@ -127,7 +127,7 @@ const Experience: React.FC = () => {
             <span className="text-sm font-mono tracking-widest uppercase text-neutral-400 dark:text-neutral-500">
               03
             </span>
-            <div className="h-[1px] w-12 bg-neutral-300 dark:bg-neutral-700" />
+            <div className="h-px w-12 bg-neutral-300 dark:bg-neutral-700" />
             <h2 className="text-sm font-mono tracking-widest uppercase text-neutral-400 dark:text-neutral-500">
               Experience
             </h2>
