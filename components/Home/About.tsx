@@ -118,10 +118,10 @@ const About: React.FC = () => {
           <div>
             <AnimatedSection delay={0.1}>
               <h3 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white leading-tight mb-8">
-                Frontend Developer building
+                Software Engineer building scalable
                 <br />
                 <span className="text-neutral-400 dark:text-neutral-500">
-                  fast, modern websites
+                  digital solutions
                 </span>
               </h3>
             </AnimatedSection>

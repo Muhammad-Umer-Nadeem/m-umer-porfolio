@@ -196,8 +196,6 @@ const clientAvatars: ClientAvatar[] = [
   { id: 6, src: "/clients/Umer-Nadeem.webp", name: "Muhammad Umer." },
 ];
 
-const CIRCLE_TEXT = "Happy Clients · Happy Clients · Happy Clients · ";
-
 const HeroCard: React.FC = () => {
   return (
     <motion.div
@@ -210,38 +208,13 @@ const HeroCard: React.FC = () => {
         <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent z-10" />
         
         <Image
-          src="/Sarib_Img/Sarib-Ali.webp"
+          src="/img/muhammad-umer-nadeem.png"
           alt="Muhammad Umer Nadeem"
           fill
           className="object-cover object-top"
           sizes="(max-width: 640px) 256px, 288px"
           priority
         />
-
-        <div className="absolute top-3 right-3 z-20 w-20 h-20">
-          <svg
-            viewBox="0 0 80 80"
-            className="w-full h-full animate-[spin_12s_linear_infinite]"
-          >
-            <defs>
-              <path
-                id="circle-path"
-                d="M 40,40 m -28,0 a 28,28 0 1,1 56,0 a 28,28 0 1,1 -56,0"
-              />
-            </defs>
-            <text
-              className="fill-white/80 dark:fill-white/80"
-              fontSize="8.5"
-              letterSpacing="1.8"
-              fontFamily="monospace"
-            >
-              <textPath href="#circle-path">{CIRCLE_TEXT}</textPath>
-            </text>
-          </svg>
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-3 h-3 rounded-full bg-white/90 dark:bg-white shadow" />
-          </div>
-        </div>
       </div>
 
       <motion.div
