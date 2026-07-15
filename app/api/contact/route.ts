@@ -1,9 +1,7 @@
-// app/api/contact/route.ts
+// app/api/contact/route.tsdatabase
 import { NextRequest, NextResponse } from 'next/server';
-import { Resend } from 'resend';
+import { transporter } from "@/lib/mail";
 import { sql } from '@vercel/postgres';
-
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {
   try {
@@ -63,77 +61,142 @@ export async function POST(request: NextRequest) {
         INSERT INTO contacts (name, email, message)
         VALUES (${sanitizedName}, ${sanitizedEmail}, ${sanitizedMessage})
       `;
-      
+
       console.log('Contact saved to database');
     } catch (dbError) {
       console.error('Database error (continuing anyway):', dbError);
       // Continue even if database fails - email is more important
     }
 
-    // Send email
-    const recipientEmail = process.env.CONTACT_EMAIL || 'umernadeem005@gmail.com';
+    try {
+      await transporter.sendMail({
+        from: `"Portfolio Contact" <${process.env.GMAIL_USER}>`,
+        to: process.env.GMAIL_USER,
+        replyTo: sanitizedEmail,
+        subject: `📩 New Portfolio Contact from ${sanitizedName}`,
+        html: `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <meta charset="UTF-8">
+      </head>
+      <body style="font-family:Arial,sans-serif;background:#f5f5f5;padding:40px;">
+        <div style="max-width:600px;margin:auto;background:#fff;border-radius:8px;padding:30px;border:1px solid #e5e5e5;">
 
-    const { data, error } = await resend.emails.send({
-      from: 'Portfolio Contact <onboarding@resend.dev>',
-      to: [recipientEmail],
-      replyTo: sanitizedEmail,
-      subject: `New Contact: ${sanitizedName}`,
-      html: `
-        <!DOCTYPE html>
-        <html>
-          <head>
-            <meta charset="utf-8">
-          </head>
-          <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; background-color: #f5f5f5;">
-            <div style="max-width: 560px; margin: 40px auto; background: #ffffff; border: 1px solid #e0e0e0; border-radius: 8px;">
-              
-              <div style="padding: 32px 32px 20px; border-bottom: 1px solid #e0e0e0;">
-                <h1 style="margin: 0; font-size: 20px; font-weight: 600; color: #1a1a1a;">New Contact Form Submission</h1>
-              </div>
-              
-              <div style="padding: 24px 32px 32px;">
-                
-                <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px;">
-                  <tr>
-                    <td style="padding: 8px 0; font-size: 14px; color: #666666; width: 70px;">From</td>
-                    <td style="padding: 8px 0; font-size: 14px; color: #1a1a1a; font-weight: 500;">${sanitizedName}</td>
-                  </tr>
-                  <tr>
-                    <td style="padding: 8px 0; font-size: 14px; color: #666666;">Email</td>
-                    <td style="padding: 8px 0; font-size: 14px; color: #1a1a1a;">${sanitizedEmail}</td>
-                  </tr>
-                  <tr>
-                    <td style="padding: 8px 0; font-size: 14px; color: #666666;">Date</td>
-                    <td style="padding: 8px 0; font-size: 14px; color: #1a1a1a;">${new Date().toLocaleString()}</td>
-                  </tr>
-                </table>
-                
-                <h2 style="margin: 0 0 12px; font-size: 14px; font-weight: 600; color: #1a1a1a;">Message</h2>
-                <div style="background: #f9f9f9; padding: 16px; border-left: 3px solid #1a1a1a; margin-bottom: 28px; font-size: 14px; color: #333333; line-height: 1.6; white-space: pre-wrap;">${sanitizedMessage}</div>
-                
-                <a href="mailto:${sanitizedEmail}?subject=Re: Portfolio Contact" style="display: inline-block; padding: 10px 20px; background: #1a1a1a; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 500; border-radius: 6px;">
-                  Reply to ${sanitizedName}
-                </a>
-                
-              </div>
-              
-            </div>
-          </body>
-        </html>
-      `,
-    });
+          <h2 style="margin-top:0;">New Contact Form Submission</h2>
 
-    if (error) {
-      console.error('Resend Error:', error);
+          <table style="width:100%;border-collapse:collapse;">
+            <tr>
+              <td style="padding:8px 0;"><strong>Name</strong></td>
+              <td>${sanitizedName}</td>
+            </tr>
+
+            <tr>
+              <td style="padding:8px 0;"><strong>Email</strong></td>
+              <td>${sanitizedEmail}</td>
+            </tr>
+
+            <tr>
+              <td style="padding:8px 0;"><strong>Date</strong></td>
+              <td>${new Date().toLocaleString()}</td>
+            </tr>
+          </table>
+
+          <hr style="margin:25px 0;">
+
+          <h3>Message</h3>
+
+          <div style="background:#fafafa;padding:15px;border-left:4px solid #111;white-space:pre-wrap;">
+            ${sanitizedMessage}
+          </div>
+
+          <br>
+
+          <a
+            href="mailto:${sanitizedEmail}?subject=Re: Portfolio Contact"
+            style="background:#111;color:#fff;padding:12px 20px;text-decoration:none;border-radius:5px;display:inline-block;"
+          >
+            Reply to ${sanitizedName}
+          </a>
+
+        </div>
+      </body>
+      </html>
+    `,
+      });
+    } catch (error) {
+      console.error("Failed to send notification email:", error);
+
       return NextResponse.json(
-        { error: 'Failed to send message' },
-        { status: 500 }
+        {
+          error: "Unable to send your message. Please try again later.",
+        },
+        {
+          status: 500,
+        }
       );
     }
 
+    // Send confirmation email to visitor
+    try {
+      await transporter.sendMail({
+        from: `"Muhammad Umer" <${process.env.GMAIL_USER}>`,
+        to: sanitizedEmail,
+        subject: "Thank you for contacting me!",
+        html: `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <meta charset="UTF-8">
+      </head>
+      <body style="font-family:Arial,sans-serif;background:#f5f5f5;padding:40px;">
+
+        <div style="max-width:600px;margin:auto;background:#fff;border-radius:8px;padding:30px;border:1px solid #e5e5e5;">
+
+          <h2>Hi ${sanitizedName}, 👋</h2>
+
+          <p>
+            Thank you for reaching out through my portfolio website.
+          </p>
+
+          <p>
+            I have successfully received your message and will review it shortly.
+          </p>
+
+          <div style="margin:25px 0;padding:15px;background:#fafafa;border-left:4px solid #111;">
+            "${sanitizedMessage}"
+          </div>
+
+          <p>
+            I'll get back to you as soon as possible.
+          </p>
+
+          <br>
+
+          <p>
+            Best regards,<br>
+            <strong>Muhammad Umer</strong><br>
+            Software Engineer
+          </p>
+
+        </div>
+
+      </body>
+      </html>
+    `,
+      });
+    } catch (error) {
+      console.error("Confirmation email failed:", error);
+    }
+
     return NextResponse.json(
-      { message: 'Message sent successfully!', id: data?.id },
-      { status: 200 }
+      {
+        success: true,
+        message: "Your message has been sent successfully.",
+      },
+      {
+        status: 200,
+      }
     );
 
   } catch (error) {
