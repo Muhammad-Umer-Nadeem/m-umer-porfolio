@@ -8,12 +8,12 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import { inter, spaceGrotesk, jetbrainsMono } from './fonts'
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sarib-portfolio.vercel.app"),
-  title: "Sarib Ali - Frontend, WordPress & Shopify Developer",
+  metadataBase: new URL("https://muhammad-umer-porfolio.vercel.app"),
+  title: "Muhammad Umer Nadeem - Frontend, WordPress & Shopify Developer",
   description:
     "I build fast, conversion-focused websites using React, WordPress, Shopify, and modern UI systems.",
   keywords: [
-    "Sarib Ali",
+    "Muhammad Umer Nadeem",
     "Frontend Developer",
     "WordPress Developer",
     "Shopify Developer",
@@ -21,20 +21,20 @@ export const metadata: Metadata = {
     "Next.js Developer Pakistan",
     "Shopify Liquid Developer",
   ],
-  authors: [{ name: "Sarib Ali" }],
+  authors: [{ name: "Muhammad Umer Nadeem" }],
   robots: { index: true, follow: true },
   openGraph: {
-    title: "Sarib Ali - Frontend, WordPress & Shopify Developer",
+    title: "Muhammad Umer Nadeem - Frontend, WordPress & Shopify Developer",
     description:
       "I build fast, conversion-focused websites using React, WordPress, Shopify, and modern UI systems.",
-    url: "https://sarib-portfolio.vercel.app",
-    siteName: "Sarib Ali",
-    images: [{ url: "/Sarib_Img/og-image.png", width: 1200, height: 630 }],
+    url: "https://muhammad-umer-porfolio.vercel.app",
+    siteName: "Muhammad Umer Nadeem",
+    images: [{ url: "/img/og-image.png", width: 1200, height: 630 }],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sarib Ali - Frontend, WordPress & Shopify Developer",
+    title: "Muhammad Umer Nadeem - Frontend, WordPress & Shopify Developer",
     description:
       "I build fast, conversion-focused websites using React, WordPress, Shopify, and modern UI systems.",
     images: ["/Sarib_Img/og-image.png"],
@@ -85,9 +85,9 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
-              name: "Sarib Ali",
+              name: "Muhammad Umer Nadeem",
               jobTitle: "Frontend & WordPress Developer",
-              url: "https://sarib-portfolio.vercel.app",
+              url: "https://muhammad-umer-porfolio.vercel.app",
               email: "notyourbotbut@gmail.com",
               sameAs: [
                 "https://github.com/sarib2005",
