@@ -188,12 +188,12 @@ const ScrambleButton: React.FC<ScrambleButtonProps> = ({
 
 /* ── Happy‑clients card ───────────────────────────────────────────────── */
 const clientAvatars: ClientAvatar[] = [
-  { id: 1, src: "/clients/Shaheryaar-Baig.webp", name: "Sheryaar Baig." },
-  { id: 5, src: "/clients/Faisal-Iqbal.jpg", name: "Faisal Iqbal." },
-  { id: 3, src: "/clients/Humaira-Qasim.webp", name: "Humaira Qasim." },
-  { id: 4, src: "/clients/Siddharth-Oak.jpg", name: "Siddharth Oak." },
+  { id: 1, src: "/clients/Shaheryaar-Baig.webp", name: "Sheryaar Baig" },
+  { id: 5, src: "/clients/Faisal-Iqbal.jpg", name: "Faisal Iqbal" },
+  { id: 3, src: "/clients/Humaira-Qasim.webp", name: "Humaira Qasim" },
+  { id: 4, src: "/clients/Siddharth-Oak.jpg", name: "Siddharth Oak" },
   // { id: 2, src: "/clients/Shaheryaar-Baig.png", name: "Jamil Khan." },
-  { id: 6, src: "/clients/Umer-Nadeem.webp", name: "Muhammad Umer." },
+  { id: 6, src: "/clients/sarib.webp", name: "Sarib Ali" },
 ];
 
 const HeroCard: React.FC = () => {
