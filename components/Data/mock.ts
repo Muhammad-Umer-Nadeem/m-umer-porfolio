@@ -60,7 +60,7 @@ export interface Experience {
   role: string;
   company: string;
   period: string;
-  description: string;
+  responsibilities: string[];
   technologies: string[];
 }
 
@@ -78,11 +78,11 @@ export const personalInfo: PersonalInfo = {
   lastName: "Nadeem",
   title: "Software Engineer",
   tagline:
-    "Software Engineer building fast, conversion-focused websites and web apps with React, Next.js, WordPress, and Shopify.",
+    "Software Engineer passionate about building scalable web applications, backend systems, and modern SaaS platforms.",
   email: "umernadeem005@gmail.com",
   phone: "+92 348 412005",
   location: "Lahore, Pakistan",
-  bio: "I'm a Software Engineer focused on building high-performance, user-friendly websites and web applications. I specialize in React, Next.js, and Tailwind CSS, with hands-on experience building custom WordPress themes and Shopify storefronts — from client portals to e-commerce sites. My work prioritizes speed, clean UI, and real business outcomes like better engagement and conversions.",
+  bio: "Backend-focused Software Engineer with a full-stack skill set and hands-on experience owning products end-to-end, from system architecture and database design through production deployment and infrastructure management. Builds scalable SaaS platforms, ERPs, and role-based admin systems using Laravel, PHP, MySQL, and RESTful APIs, with working knowledge of React. Comfortable managing Linux production environments and third-party integrations (Stripe, auth providers, email delivery), and experienced mentoring junior developers through code review and architecture guidance.",
   resumeUrl: "#",
   social: {
     github: "https://github.com/Muhammad-Umer-Nadeem",
@@ -107,20 +107,38 @@ export const stats: Stat[] = [
 ];
 
 export const skillTags: string[] = [
-  "HTML",
-  "CSS",
+  "PHP",
   "JavaScript",
+  "HTML5",
+  "CSS3",
+  "SQL",
+  "Laravel",
   "React",
-  "GSAP",
-  "Framer Motion",
+  "Bootstrap",
   "Tailwind CSS",
-  "WordPress",
-  "Custom Themes",
-  "Elementor",
+  "Material UI",
+  "jQuery",
+  "AJAX",
+  "MySQL",
+  "SQL Server",
+  "Redis",
+  "RESTful APIs",
+  "Stripe",
+  "Postman",
   "GitHub",
-  "REST APIs",
+  "Linux",
+  "CloudPanel",
+  "Supervisor",
+  "Cron Jobs",
+  "Queue Workers",
+  "VPS Management",
+  "WordPress",
   "Shopify",
-  "Next.js",
+  "ERP",
+  "RBAC",
+  "POS",
+  "CRM",
+  "LMS",
 ];
 
 export const projects: Project[] = [
@@ -130,7 +148,7 @@ export const projects: Project[] = [
     image: "/mocks/syb.webp",
     description:
       "A comprehensive digital innovation platform for a UK-based IT services company, featuring service showcases for web/mobile development, digital marketing, and etc.",
-    tags: ["React", "Vite", "Tailwind CSS","Laravel"],
+    tags: ["React", "Vite", "Tailwind CSS", "Laravel"],
     category: "Corporate Ecosystem",
     year: "2025-2026",
     link: "https://sybecosystem.com",
@@ -143,7 +161,7 @@ export const projects: Project[] = [
     image: "/mocks/sethsyb.webp",
     description:
       "A modern eCommerce website for a perfume brand featuring product browsing, category filtering, and a smooth shopping experience with a focus on clean UI and responsive design.",
-    tags: ["React", "Vite", "Tailwind CSS","Laravel"],
+    tags: ["React", "Vite", "Tailwind CSS", "Laravel"],
     category: "E-commerce Website",
     year: "2026",
     link: "https://seth-syb-frontend.vercel.app/",
@@ -156,7 +174,7 @@ export const projects: Project[] = [
     image: "/mocks/applyvisas.webp",
     description:
       "A professional visa consultancy website showcasing immigration services, visa guidance, and client inquiry features with a structured and conversion-focused layout.",
-    tags: ["React", "Vite", "Tailwind CSS","Laravel"],
+    tags: ["React", "Vite", "Tailwind CSS", "Laravel"],
     category: "Business Website",
     year: "2025-2026",
     link: "https://applyvisas.co.uk",
@@ -192,7 +210,7 @@ export const projects: Project[] = [
     title: "Solicitors Chambers",
     description:
       "A professional legal services website providing comprehensive information about legal expertise, practice areas, and client representation with a dignified and authoritative online presence.",
-    tags: ["React", "Next.js", "Tailwind CSS","Laravel"],
+    tags: ["React", "Next.js", "Tailwind CSS", "Laravel"],
     category: "Legal Website",
     year: "2026",
     link: "https://solicitorschambers.com",
@@ -252,30 +270,75 @@ export const projects: Project[] = [
 export const experiences: Experience[] = [
   {
     id: 1,
-    role: "Frontend Developer",
+    role: "Software Engineer",
     company: "SYB Business Ecosystem",
-    period: "Jan 2025 — Present",
-    description:
-      "Developing and maintaining high-performance websites and web applications using WordPress, React, and Next.js. Building scalable, user-focused digital solutions across multiple projects.",
-    technologies: ["WordPress", "React", "Next.js", "Shopify"],
+    period: "Aug 2025 — Present",
+    responsibilities: [
+      "Own end-to-end backend development for multiple SaaS products and business web applications, including system architecture, database design, and production deployment using Laravel, PHP, MySQL, and RESTful APIs.",
+      "Build reusable CMS modules and role-based admin panels for content management, user management, reporting, and payment workflows across the company's product suite.",
+      "Integrate Stripe, social authentication providers, and other third-party APIs, while delivering custom WordPress and Shopify solutions for business requirements.",
+      "Manage Linux-based production infrastructure, including VPS administration, CloudPanel, Redis, Supervisor, CRON jobs, queues, and business email infrastructure (DNS, SPF, DKIM, and DMARC).",
+      "Mentor junior developers through code reviews and architecture guidance while collaborating with cross-functional teams to deliver scalable technical solutions on schedule.",
+    ],
+    technologies: [
+      "Laravel",
+      "PHP",
+      "MySQL",
+      "RESTful APIs",
+      "Stripe",
+      "WordPress",
+      "Shopify",
+      "Redis",
+      "CloudPanel",
+      "Linux",
+      "Supervisor",
+    ],
   },
   {
     id: 2,
-    role: "Game Developer",
-    company: "ArtSphere",
-    period: "April 2024 — Jan 2025",
-    description:
-      "Developed 2D games using C# and Unity, gaining hands-on experience in game mechanics, scripting, and interactive design.",
-    technologies: ["C#", "Unity 2D"],
+    role: "Full Stack Developer",
+    company: "Algo Soft Tech",
+    period: "Jun 2024 — Jul 2025",
+    responsibilities: [
+      "Built dynamic, SEO-optimized, high-performance web applications using Laravel and Bootstrap with a focus on reusable components and frontend optimization.",
+      "Designed optimized MySQL and SQL Server database schemas and implemented complex queries to improve application performance across multiple client projects.",
+      "Designed and implemented secure RESTful APIs to enable seamless communication between frontend and backend systems.",
+    ],
+    technologies: [
+      "Laravel",
+      "Blade",
+      "PHP",
+      "jQuery",
+      "AJAX",
+      "Axios",
+      "Bootstrap",
+      "MySQL",
+      "SQL Server",
+      "RESTful APIs",
+      "JavaScript",
+      "HTML5",
+      "CSS3",
+    ],
   },
   {
     id: 3,
-    role: "Web Development Intern",
-    company: "Rise Rox Tech",
-    period: "Jan 2024 — April 2024",
-    description:
-      "Started the professional journey learning the fundamentals of web development. Built small projects using HTML, CSS, and Java, gaining a solid foundation in frontend and programming basics.",
-    technologies: ["HTML", "CSS", "Java"],
+    role: "Email Marketing & Fiverr Team Manager",
+    company: "Prism Design Studios",
+    period: "Oct 2020 — May 2024",
+    responsibilities: [
+      "Managed the Fiverr team, overseeing multiple team members, account performance, and sales strategies across multiple Fiverr profiles.",
+      "Led client communication, order management, and coordinated project delivery to maintain service quality and client satisfaction.",
+      "Managed email marketing campaigns, lead generation, and outreach while completing a full-time BS Information Technology degree.",
+      "Improved campaign efficiency and reporting through Excel automation and data-driven analysis.",
+    ],
+    technologies: [
+      "Email Marketing",
+      "Lead Generation",
+      "Excel",
+      "Client Management",
+      "Fiverr",
+      "Team Leadership",
+    ],
   },
 ];
 
