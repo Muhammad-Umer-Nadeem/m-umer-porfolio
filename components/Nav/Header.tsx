@@ -88,7 +88,7 @@ const Header: React.FC = () => {
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-[#fafafa]/80 dark:bg-[#0a0a0a]/80 backdrop-blur-xl border-b border-neutral-200 dark:border-neutral-800"
+            ? "bg-white/80 dark:bg-black/80 backdrop-blur-xl border-b border-neutral-200 dark:border-neutral-800"
             : "bg-transparent"
         }`}
       >
@@ -126,7 +126,7 @@ const Header: React.FC = () => {
                 {isActiveSection(link.href) && (
                   <motion.div
                     layoutId="activeNav"
-                    className="absolute -bottom-1 left-0 right-0 h-[2px] bg-neutral-900 dark:bg-white rounded-full"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-neutral-900 dark:bg-white rounded-full"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}

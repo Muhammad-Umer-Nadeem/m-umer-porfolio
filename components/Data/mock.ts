@@ -295,31 +295,31 @@ export const testimonials: Testimonial[] = [
     id: 1,
     name: "Sheryaar Baig",
     role: "CEO, SYB Business Ecosystem",
-    text: "Sarib is a rare talent who combines sharp technical skill with genuine care for his clients. He's been instrumental in bringing our digital ecosystem to life.",
+    text: "Umer is a rare talent who combines sharp technical skill with genuine care for his clients. He's been instrumental in bringing our digital ecosystem to life.",
   },
   {
     id: 2,
     name: "Jamil Khan",
     role: "CEO, DiscountOye",
-    text: "Sarib understood our vision instantly and built an experience that truly represents DiscountOye. His dedication and attention to detail are unmatched.",
+    text: "Umer understood our vision instantly and built an experience that truly represents DiscountOye. His dedication and attention to detail are unmatched.",
   },
   {
     id: 3,
     name: "Siddharth Oak",
     role: "Website Operations, ApplyVisas",
-    text: "Sarib brought structure, polish, and real reliability to our operations. Working with him has been an absolute pleasure, precise, and always on point.",
+    text: "Umer brought structure, polish, and real reliability to our operations. Working with him has been an absolute pleasure, precise, and always on point.",
   },
   {
     id: 4,
     name: "Humaira Qasim",
     role: "Founder, SYB Hedayat",
-    text: "Sarib approached our project with genuine empathy and care. He built something beautiful and meaningful for our community, we're truly grateful.",
+    text: "Umer approached our project with genuine empathy and care. He built something beautiful and meaningful for our community, we're truly grateful.",
   },
   {
     id: 5,
     name: "Scott Blanchard",
     role: "Founder, Inspire Interiors",
-    text: "Sarib captured the soul of Inspire Interiors perfectly in our website. Creative, responsive, and a true professional from start to finish.",
+    text: "Umer captured the soul of Inspire Interiors perfectly in our website. Creative, responsive, and a true professional from start to finish.",
   },
 ];
 

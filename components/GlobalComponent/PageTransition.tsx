@@ -32,7 +32,7 @@ export default function PageTransition({ children }: { children: React.ReactNode
         {show && (
           <motion.div
             key="page-intro"
-            className="fixed inset-0 z-[9999] pointer-events-none"
+            className="fixed inset-0 z-9999 pointer-events-none"
             initial={{ opacity: 1 }}
             exit={{ opacity: 1 }}
           >
@@ -41,7 +41,7 @@ export default function PageTransition({ children }: { children: React.ReactNode
               {Array.from({ length: COLUMNS }).map((_, i) => (
                 <motion.div
                   key={i}
-                  className="flex-1 bg-[#0a0a0a] dark:bg-[#fafafa]"
+                  className="flex-1 bg-black dark:bg-white"
                   initial={{ y: 0 }}
                   animate={{ y: "-101%" }}
                   transition={{

@@ -207,7 +207,7 @@ const HeroCard: React.FC = () => {
       className="relative flex flex-col items-center"
     >
       <div className="relative w-64 h-72 sm:w-72 sm:h-80 rounded-[2rem] overflow-hidden shadow-2xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200/50 dark:border-neutral-800/50">
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent z-10" />
         
         <Image
           src="/Sarib_Img/Sarib-Ali.webp"

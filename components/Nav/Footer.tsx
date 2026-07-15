@@ -34,12 +34,12 @@ const Footer: React.FC = () => {
   const socialLinks: SocialLink[] = [
     {
       platform: "github",
-      url: "https://github.com/sarib2005",
+      url: personalInfo.social.github || "#",
       label: "GitHub Profile",
     },
     {
       platform: "linkedin",
-      url: "https://www.linkedin.com/in/sarib-ali-khan/",
+      url: personalInfo.social.linkedin || "#",
       label: "LinkedIn Profile",
     },
     {
