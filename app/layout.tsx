@@ -38,7 +38,7 @@ export const metadata: Metadata = {
       "Building scalable SaaS platforms, business applications, RESTful APIs, and modern web solutions using Laravel, PHP, MySQL, React, and cloud infrastructure.",
     url: "https://muhammad-umer-porfolio.vercel.app",
     siteName: "Muhammad Umer Nadeem",
-    images: [{ url: "/img/og-image.png", width: 1023, height: 1537 }],
+    images: [{ url: "/img/og-image.png", width: 1200, height: 630 }],
     type: "website",
   },
   twitter: {
