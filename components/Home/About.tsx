@@ -5,7 +5,6 @@ import { motion, useInView, useMotionValue, useSpring, MotionValue } from "frame
 import { personalInfo, stats, skillTags } from "@/components/Data/mock";
 import { MapPin, Briefcase, Mail } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import Image from "next/image";
 
 // Type definitions
 interface Stat {
@@ -220,7 +219,6 @@ const About: React.FC = () => {
                   &ldquo;My focus is on building secure, scalable, and maintainable applications that deliver real value to users and businesses.&rdquo;
                 </blockquote>
                 <div className="mt-4 flex items-center gap-3">
-                  {/* Avatar placeholder - Replace with Image component if using actual image */}
                   <div className="w-8 h-8 rounded-full bg-neutral-200 dark:bg-neutral-800 flex items-center justify-center text-xs font-bold text-neutral-600 dark:text-neutral-400">
                     {personalInfo.firstName[0]}
                     {personalInfo.lastName[0]}
