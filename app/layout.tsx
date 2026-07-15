@@ -9,24 +9,33 @@ import { inter, spaceGrotesk, jetbrainsMono } from './fonts'
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://muhammad-umer-porfolio.vercel.app"),
-  title: "Muhammad Umer Nadeem - Frontend, WordPress & Shopify Developer",
+  title: "Muhammad Umer Nadeem | Software Engineer | Laravel & Backend Developer",
   description:
-    "I build fast, conversion-focused websites using React, WordPress, Shopify, and modern UI systems.",
+    "Backend-focused Software Engineer specializing in Laravel, PHP, MySQL, RESTful APIs, scalable SaaS applications, ERP systems, and modern full-stack web development.",
   keywords: [
     "Muhammad Umer Nadeem",
-    "Frontend Developer",
-    "WordPress Developer",
-    "Shopify Developer",
+    "Software Engineer",
+    "Backend Developer",
+    "Laravel Developer",
+    "PHP Developer",
+    "Full Stack Developer",
     "React Developer",
-    "Next.js Developer Pakistan",
-    "Shopify Liquid Developer",
+    "REST API Developer",
+    "MySQL",
+    "Redis",
+    "Stripe Integration",
+    "ERP Developer",
+    "SaaS Developer",
+    "Pakistan Software Engineer",
+    "Lahore Software Engineer",
   ],
   authors: [{ name: "Muhammad Umer Nadeem" }],
   robots: { index: true, follow: true },
   openGraph: {
-    title: "Muhammad Umer Nadeem - Frontend, WordPress & Shopify Developer",
+    title:
+      "Muhammad Umer Nadeem | Software Engineer | Laravel & Backend Developer",
     description:
-      "I build fast, conversion-focused websites using React, WordPress, Shopify, and modern UI systems.",
+      "Building scalable SaaS platforms, business applications, RESTful APIs, and modern web solutions using Laravel, PHP, MySQL, React, and cloud infrastructure.",
     url: "https://muhammad-umer-porfolio.vercel.app",
     siteName: "Muhammad Umer Nadeem",
     images: [{ url: "/img/og-image.png", width: 1200, height: 630 }],
@@ -34,10 +43,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Muhammad Umer Nadeem - Frontend, WordPress & Shopify Developer",
-    description:
-      "I build fast, conversion-focused websites using React, WordPress, Shopify, and modern UI systems.",
-    images: ["/Sarib_Img/og-image.png"],
+    title: "Muhammad Umer Nadeem | Software Engineer | Laravel & Backend Developer",
+    description: "Backend-foused Software Engineer building scalable Laravel applications, SaaS platforms, REST APIs, and modern web solutions.",
+    images: ["/img/og-image.png"],
   },
   icons: { icon: "/favicon.ico" },
   verification: {
@@ -86,12 +94,32 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Muhammad Umer Nadeem",
-              jobTitle: "Frontend & WordPress Developer",
+              jobTitle: "Software Engineer",
               url: "https://muhammad-umer-porfolio.vercel.app",
-              email: "notyourbotbut@gmail.com",
+              email: "mailto:umernadeem005@gmail.com",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Lahore",
+                addressCountry: "Pakistan"
+              },
+              knowsAbout: [
+                "Laravel",
+                "PHP",
+                "MySQL",
+                "RESTful APIs",
+                "React",
+                "Redis",
+                "Stripe",
+                "CloudPanel",
+                "Linux",
+                "Software Architecture",
+                "System Design",
+                "ERP Development",
+                "SaaS Development"
+              ],
               sameAs: [
-                "https://github.com/sarib2005",
-                "https://www.linkedin.com/in/sarib-ali-khan/",
+                "https://github.com/Muhammad-Umer-Nadeem",
+                "https://www.linkedin.com/in/muhammad-umer-nadeem/",
               ],
             }),
           }}
