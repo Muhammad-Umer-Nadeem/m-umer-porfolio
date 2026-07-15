@@ -336,7 +336,7 @@ const Hero: React.FC = () => {
               </motion.p>
             </div>
 
-            <h1 className="text-4xl sm:text-4xl md:text-4xl lg:text-[10rem] font-bold leading-[0.85] tracking-tighter text-neutral-900 dark:text-white mb-8">
+            <h1 className="text-6xl sm:text-4xl md:text-6xl lg:text-[5rem] font-bold leading-[0.85] tracking-tighter text-neutral-900 dark:text-white mb-8">
               <TextReveal delay={0.3}>{personalInfo.firstName}</TextReveal>
               <br />
               <TextReveal delay={0.5}>
