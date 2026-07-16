@@ -474,7 +474,7 @@ const Projects: React.FC = () => {
             Other notable projects
           </h4>
         </motion.div>
-        <div className="grid md:grid-cols-3 gap-4 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 items-stretch">
           {others.map((project: Project, index: number) => (
             project.link ? (
               <Link
