@@ -9,6 +9,9 @@ import {
   Clock,
   Wrench,
   Construction,
+  ArrowRight,
+  Lock,
+  ExternalLink,
 } from "lucide-react";
 import { FaGithub as Github } from "react-icons/fa";
 import { Badge } from "@/components/ui/badge";
@@ -113,12 +116,12 @@ const StatusBadge: React.FC<StatusBadgeProps> = ({ status }) => {
   const Icon = config.icon;
 
   return (
-    <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-[#FAFAFA] dark:bg-[#0A0A0A] text-neutral-800 dark:text-neutral-200 border border-neutral-200 dark:border-neutral-700 shadow-sm">
+    <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-medium bg-[#0D0F13] border border-neutral-800 text-neutral-300 shadow-lg">
       <span
         className={`w-1.5 h-1.5 rounded-full ${config.dot} animate-pulse`}
         aria-hidden="true"
       />
-      <Icon size={12} className="opacity-70" aria-hidden="true" />
+      <Icon size={10} className="opacity-70" aria-hidden="true" />
       <span>{config.label}</span>
     </div>
   );
@@ -150,29 +153,26 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({ project, index }) => 
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <div className="relative overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800 h-full flex flex-col">
+      <div className="relative overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800 h-full flex flex-col bg-white dark:bg-[#0D0F13] shadow-xl transition-all duration-300 hover:border-neutral-300 dark:hover:border-neutral-700">
         {/* Project visual area */}
         <div
-          className={`relative h-64 md:h-80 bg-linear-to-br ${gradients[index % 3]} overflow-hidden`}
+          className={`relative aspect-video w-full overflow-hidden bg-linear-to-br ${gradients[index % 3]}`}
         >
-          {/* Animated pattern */}
-          <motion.div
-            className="absolute inset-0"
+          {/* Animated background pattern */}
+          <div
+            className="absolute inset-0 opacity-[0.03] transition-transform duration-700 group-hover:scale-105 pointer-events-none"
             style={{
-              backgroundImage: `radial-gradient(circle at 25% 25%, rgba(0,0,0,0.03) 1px, transparent 1px)`,
-              backgroundSize: "24px 24px",
+              backgroundImage: `radial-gradient(circle at 1px 1px, ${'#000'} 1px, transparent 0)`,
+              backgroundSize: '16px 16px'
             }}
-            animate={hovered ? { scale: 1.1 } : { scale: 1 }}
-            transition={{ duration: 0.6 }}
-            aria-hidden="true"
           />
 
-          {/* Project image - Use Next.js Image component for local images */}
+          {/* Project image */}
           {project.image && (
             <motion.div
               className="absolute inset-0"
-              animate={hovered ? { scale: 1.05 } : { scale: 1 }}
-              transition={{ duration: 0.6 }}
+              animate={hovered ? { scale: 1.04 } : { scale: 1 }}
+              transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
             >
               <Image
                 src={project.image}
@@ -185,84 +185,107 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({ project, index }) => 
           )}
 
           {/* Status badge - Top Left */}
-          <motion.div
-            className="absolute top-4 left-4 z-10"
-            initial={{ opacity: 0, y: -10 }}
-            animate={
-              hovered
-                ? { opacity: 1, y: 0 }
-                : { opacity: 0.8, y: 0 }
-            }
-            transition={{ delay: 0.1 }}
-          >
+          <div className="absolute top-3 left-3 z-10">
             <StatusBadge status={project.status} />
-          </motion.div>
-
-          {/* Floating tags */}
-          <div className="absolute bottom-6 left-8 flex gap-2">
-            {project.tags.map((tag: string, i: number) => (
-              <motion.div
-                key={tag}
-                initial={{ opacity: 0, y: 10 }}
-                animate={
-                  hovered
-                    ? { opacity: 1, y: 0 }
-                    : { opacity: 0.9, y: 0 }
-                }
-                transition={{ delay: i * 0.05 }}
-              >
-                <Badge className="bg-[#FAFAFA] dark:bg-[#0A0A0A] text-neutral-800 dark:text-neutral-200 border border-neutral-200 dark:border-neutral-700 text-xs px-3 py-1 rounded-full shadow-sm">
-                  {tag}
-                </Badge>
-              </motion.div>
-            ))}
           </div>
 
-          {/* Arrow link */}
-          <motion.div
-            className="absolute top-6 right-8 z-10"
-            animate={
-              hovered
-                ? { scale: 1.2 }
-                : { scale: 1 }
-            }
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            {project.link ? (
-              <Link
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-cursor="View"
-                className="w-12 h-12 rounded-full bg-[#FAFAFA] dark:bg-[#0A0A0A] border border-neutral-200 dark:border-neutral-700 flex items-center justify-center text-neutral-700 dark:text-neutral-300 hover:bg-neutral-900 dark:hover:bg-white hover:text-white dark:hover:text-black hover:border-neutral-900 dark:hover:border-white transition-colors duration-300"
-              >
-                <ArrowUpRight size={18} />
-              </Link>
-            ) : (
-              <div className="rounded-full bg-[#FAFAFA] dark:bg-[#0A0A0A] border border-neutral-200 dark:border-neutral-700 px-4 py-2 text-xs font-medium whitespace-nowrap text-neutral-700 dark:text-neutral-300">
-                🔒 {project.demoText ?? "Demo Available on Request"}
-              </div>
-            )}
-          </motion.div>
+          {/* Private badge - Top Right (if private) */}
+          {(project as any).isPrivate && (
+            <div className="absolute top-3 right-3 z-10">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-mono font-semibold uppercase bg-[#0D0F13] border border-neutral-800 text-neutral-400 shadow-lg">
+                <Lock size={10} className="text-neutral-500" />
+                Private
+              </span>
+            </div>
+          )}
         </div>
 
         {/* Content */}
-        <div className="p-8 bg-white dark:bg-neutral-900 flex-1">
-          <div className="flex items-center gap-3 mb-3">
-            <span className="text-xs font-mono tracking-wider uppercase text-neutral-400 dark:text-neutral-500">
+        <div className="p-5 md:p-6 flex flex-col flex-1">
+          {/* Category & Status */}
+          <div className="flex flex-wrap items-center justify-between gap-2.5 mb-3">
+            <span className="text-[10px] font-mono tracking-widest uppercase text-neutral-400 dark:text-neutral-500 font-semibold">
               {project.category}
             </span>
-            <span className="text-neutral-300 dark:text-neutral-700">/</span>
-            {/* <span className="text-xs font-mono text-neutral-400 dark:text-neutral-500">
-              {project.year}
-            </span> */}
+            {project.link && (
+              <span className="inline-flex items-center gap-1 text-[10px] font-mono font-semibold uppercase text-emerald-400/80">
+                <ExternalLink size={10} />
+                Public
+              </span>
+            )}
           </div>
-          <h3 className="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-white mb-2 leading-tight">
+
+          {/* Title */}
+          <h3 className="text-xl md:text-2xl font-bold text-neutral-900 dark:text-white group-hover:text-neutral-600 dark:group-hover:text-neutral-300 transition-colors duration-300 line-clamp-1">
             {project.title}
           </h3>
-          <p className="text-neutral-500 dark:text-neutral-400 text-sm leading-relaxed">
+
+          {/* Description */}
+          <p className="text-neutral-500 dark:text-neutral-400 text-sm leading-relaxed mt-3 mb-5 flex-1 font-light">
             {project.description}
           </p>
+
+          {/* Tags */}
+          <div className="flex flex-wrap gap-2 mb-5">
+            {project.tags.map((tag: string) => (
+              <span
+                key={tag}
+                className="text-[11px] font-mono font-medium px-2.5 py-1 bg-[#FAFAFA] dark:bg-[#121418] border border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-300 rounded-full transition-colors duration-200 hover:border-neutral-300 dark:hover:border-neutral-700"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          {/* Divider */}
+          <div className="h-px w-full bg-neutral-200 dark:bg-neutral-800/60 mb-4" />
+
+          {/* Footer */}
+          <div className="flex items-center justify-between mt-auto">
+            {/* Demo text or link indicator */}
+            <div className="flex items-center gap-1.5 text-neutral-400 dark:text-neutral-500 font-medium text-xs">
+              {project.link ? (
+                <>
+                  <ExternalLink size={12} className="text-neutral-500" />
+                  <span>View Project</span>
+                </>
+              ) : (
+                <>
+                  <Lock size={12} className="text-neutral-500" />
+                  <span>{project.demoText || "Demo Available on Request"}</span>
+                </>
+              )}
+            </div>
+
+            {/* Action button */}
+            <motion.div
+              className="w-9 h-9 rounded-lg border border-neutral-200 dark:border-neutral-800 flex items-center justify-center bg-[#FAFAFA] dark:bg-[#101216]/50 text-neutral-600 dark:text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white group-hover:border-neutral-300 dark:group-hover:border-neutral-600 group-hover:bg-neutral-100 dark:group-hover:bg-neutral-800/40 transition-all duration-300"
+              animate={hovered ? { scale: 1.05 } : { scale: 1 }}
+            >
+              <motion.div
+                animate={hovered ? { x: 3 } : { x: 0 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
+                {project.link ? (
+                  <Link
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center w-full h-full"
+                  >
+                    <ArrowRight size={16} />
+                  </Link>
+                ) : (
+                  <Link
+                    href="#contact"
+                    className="flex items-center justify-center w-full h-full"
+                  >
+                    <ArrowRight size={16} />
+                  </Link>
+                )}
+              </motion.div>
+            </motion.div>
+          </div>
         </div>
 
         {/* Animated bottom border */}
