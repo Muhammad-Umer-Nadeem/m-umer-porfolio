@@ -332,7 +332,7 @@ const Contact: React.FC = () => {
 
   // View Resume
   const downloadCV = (): void => {
-    const cvUrl = "/resume/Sarib_Ali_Resume.pdf";
+    const cvUrl = "/resume/muhammad-umer-resume.pdf";
 
     // Open in new tab for viewing only
     window.open(cvUrl, '_blank', 'noopener,noreferrer');
@@ -340,11 +340,11 @@ const Contact: React.FC = () => {
 
   // Download CV
   const handleDownloadCV = (): void => {
-    const cvUrl = "/resume/Sarib_Ali_Resume.pdf";
+    const cvUrl = "/resume/muhammad-umer-resume.pdf";
 
     const link = document.createElement("a");
     link.href = cvUrl;
-    link.download = "Sarib_Ali_Resume.pdf";
+    link.download = "muhammad-umer-resume.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
