@@ -50,9 +50,10 @@ export interface Project {
   tags: string[];
   category: string;
   year: string;
-  link: string;
+  link?: string;
   featured: boolean;
   status: ProjectStatus;
+  demoText?: string;
 }
 
 export interface Experience {
@@ -147,8 +148,8 @@ export const projects: Project[] = [
     title: "Syb Ecosystem",
     image: "/mocks/syb.webp",
     description:
-      "A comprehensive digital innovation platform for a UK-based IT services company, featuring service showcases for web/mobile development, digital marketing, and etc.",
-    tags: ["React", "Vite", "Tailwind CSS", "Laravel"],
+      "Multi-service business platform with separate customer/admin dashboards, social login (Google, Facebook, email), dynamic service - request form builder, Stripe invoicing, and full RBAC administration. ",
+    tags: ["Laravel", "React", "MySQL", "Stripe", "REST APIs"],
     category: "Corporate Ecosystem",
     year: "2025-2026",
     link: "https://sybecosystem.com",
@@ -160,8 +161,8 @@ export const projects: Project[] = [
     title: "Seth SYB",
     image: "/mocks/sethsyb.webp",
     description:
-      "A modern eCommerce website for a perfume brand featuring product browsing, category filtering, and a smooth shopping experience with a focus on clean UI and responsive design.",
-    tags: ["React", "Vite", "Tailwind CSS", "Laravel"],
+      "A full-stack perfume eCommerce platform developed using Laravel and React, featuring secure Stripe and Cash on Delivery payments, product and inventory management, order processing, customer authentication, and a role-based admin dashboard designed for scalable business operations.",
+    tags: ["Laravel", "React", "MySQL", "Stripe", "Tailwind CSS"],
     category: "E-commerce Website",
     year: "2026",
     link: "https://seth-syb-frontend.vercel.app/",
@@ -173,98 +174,156 @@ export const projects: Project[] = [
     title: "ApplyVisas",
     image: "/mocks/applyvisas.webp",
     description:
-      "A professional visa consultancy website showcasing immigration services, visa guidance, and client inquiry features with a structured and conversion-focused layout.",
-    tags: ["React", "Vite", "Tailwind CSS", "Laravel"],
+      "A multilingual visa consultancy platform built with Laravel and React, featuring dynamic inquiry forms, service management, content administration, and a responsive user experience designed to streamline client consultations and lead generation.",
+    tags: ["Laravel", "React", "MySQL", "Tailwind CSS"],
     category: "Business Website",
     year: "2025-2026",
     link: "https://applyvisas.co.uk",
     featured: true,
     status: "completed",
   },
-  // {
-  //   id: 4,
-  //   title: "Client Portfolio",
-  //   description:
-  //     "A modern graphic design portfolio built with React, showcasing creative design work, projects, skills, and services with smooth animations and a responsive interface.",
-  //   tags: ["React", "Vite", "Tailwind CSS", "Framer Motion"],
-  //   category: "Graphic Portfolio",
-  //   year: "2026",
-  //   link: "https://laiba-portfolioo.vercel.app/",
-  //   featured: false,
-  //   status: "completed",
-  // },
   {
     id: 4,
-    title: "Klyro",
-    description:
-      "A modern e-commerce storefront featuring a clean shopping experience, responsive layouts, intuitive product browsing, engaging UI, and a conversion-focused design.",
-    tags: ["React", "Next.js", "Tailwind CSS", "Framer Motion"],
-    category: "E-commerce",
-    year: "2026",
-    link: "https://klyro-chi.vercel.app/",
-    featured: false,
-    status: "ongoing",
-  },
-  {
-    id: 5,
     title: "Solicitors Chambers",
     description:
-      "A professional legal services website providing comprehensive information about legal expertise, practice areas, and client representation with a dignified and authoritative online presence.",
-    tags: ["React", "Next.js", "Tailwind CSS", "Laravel"],
-    category: "Legal Website",
+      "A full-stack legal case management platform built with Laravel and React, featuring dedicated Admin, Client, and Solicitor portals, case assignment, contract management, secure document storage, messaging, and Stripe-powered payment workflows.",
+    tags: ["Laravel", "React", "MySQL", "Stripe", "Tailwind CSS", "Next.js"],
+    category: "Legal Case Management Platform",
     year: "2026",
     link: "https://solicitorschambers.com",
     featured: false,
     status: "ongoing",
   },
   {
-    id: 6,
-    title: "Syb Hedayat",
+    id: 5,
+    title: "SYB Hedayat",
     description:
-      "A Quran-based online learning platform with separate teacher and student portals, enabling class management, student registration, and centralized admin control for system operations.",
-    tags: ["React", "Vite", "Tailwind CSS", "Laravel"],
-    category: "Educational Platform",
+      "A full-stack online Quran learning platform built with Laravel and React, featuring Admin, Teacher, and Student dashboards, teacher approval workflows, course and enrollment management, class scheduling, attendance tracking, and role-based administration.",
+    tags: ["Laravel", "React", "MySQL", "Tailwind CSS", "Stripe"],
+    category: "Learning Management System (LMS)",
     year: "2026",
     link: "https://sybhedayat.com/",
     featured: false,
     status: "ongoing",
   },
   {
-    id: 7,
-    title: "Ranabaig Law Firm",
-    description:
-      "A sophisticated law firm website showcasing legal services, attorney profiles, case studies, and consultation booking with a professional and trust-building design approach.",
-    tags: ["WordPress", "Elementor", "PHP"],
-    category: "Legal Website",
-    year: "2026",
-    link: "https://ranabaiglawfirm.com",
-    featured: false,
-    status: "completed",
-  },
-  {
-    id: 8,
+    id: 6,
     title: "Study2Uni",
     description:
-      "An educational consultancy platform connecting students with university opportunities, featuring course browsing, application guidance, and comprehensive admission support services.",
-    tags: ["React", "Vite", "Tailwind CSS", "Laravel"],
-    category: "Educational Consultancy",
+      "A UK-focused student admission website built with Laravel and React, featuring a comprehensive database of UK universities and academic programs populated through a custom Python web scraper, along with application tracking, document uploads, and admission inquiry management.",
+    tags: ["Laravel", "React", "Python", "MySQL", "Tailwind CSS"],
+    category: "Educational Consultancy Website",
     year: "2026",
     link: "https://study2uni.com",
     featured: false,
     status: "completed",
   },
   {
-    id: 9,
-    title: "Charity4Humanity",
+    id: 7,
+    title: "DiscountOye.pk",
+    image: "/mocks/discountoye.webp",
     description:
-      "A compassionate charity organization website facilitating donations, volunteer coordination, and transparent reporting for humanitarian causes with a warm and engaging user experience.",
-    tags: ["WordPress", "Elementor", "PHP"],
-    category: "Non-Profit Website",
+      "A fully custom Shopify eCommerce store for a consumer electronics retailer, developed using Liquid and JavaScript with a performance-optimized theme, advanced product filtering, promotional campaign management, and a responsive shopping experience.",
+    tags: ["Shopify", "Liquid", "JavaScript", "HTML", "CSS"],
+    category: "Shopify eCommerce Store",
     year: "2026",
-    link: "https://charity4humanity.org",
+    link: "https://discountoye.pk",
     featured: false,
     status: "completed",
   },
+  {
+    id: 8,
+    title: "Super Max Filters",
+    image: "/mocks/supermaxfilters.webp",
+    description:
+      "A Laravel-based product catalog website for an industrial filtration company, featuring an administrative dashboard for managing products, categories, types, and models, along with advanced search and filtering capabilities to help customers quickly find compatible products.",
+    tags: ["Laravel", "PHP", "MySQL", "Blade", "Bootstrap"],
+    category: "Product Catalog Website",
+    year: "2025",
+    link: "https://supermaxfilter.com/",
+    featured: false,
+    status: "completed",
+  },
+  {
+    id: 9,
+    title: "Algo ERP System",
+    image: "/mocks/algo-erp.webp",
+    description:
+      "A highly scalable, multi-module ERP platform developed with Laravel and MySQL, featuring procurement and inventory management, HRIS and payroll, financial accounting, sales and CRM, project management, business intelligence reporting, and role-based access control, built on a reusable architecture for enterprise-scale operations.",
+    tags: [
+      "Laravel",
+      "PHP",
+      "MySQL",
+      "ERP",
+      "RBAC",
+      "Bootstrap"
+    ],
+    category: "Enterprise Resource Planning (ERP)",
+    year: "2025",
+    featured: true,
+    status: "completed",
+    demoText: "Demo Available on Request"
+  },
+  {
+    id: 10,
+    title: "Digital Invoicing System",
+    image: "/mocks/digital-invoicing.webp",
+    description:
+      "An FBR-integrated point-of-sale and digital invoicing system developed with Laravel and MySQL, featuring product and inventory management, real-time sales processing, custom PDF invoice and receipt generation, tax-compliant invoicing, and role-based access control for secure business operations.",
+    tags: [
+      "Laravel",
+      "MySQL",
+      "POS",
+      "FBR",
+      "PDF Generation",
+      "RBAC"
+    ],
+    category: "Point of Sale (POS) & Digital Invoicing System",
+    year: "2025",
+    featured: true,
+    status: "completed",
+    demoText: "Demo Available on Request",
+  },
+  {
+    id: 11,
+    title: "Textile Import Solutions ERP",
+    image: "/mocks/textile-import-solutions.webp",
+    description:
+      "An ERP solution for a textile import business developed with Laravel and SQL Server, featuring point-of-sale operations, inventory and stock management, product catalog administration, purchase tracking, sales reporting, and role-based access control to streamline day-to-day business operations.",
+    tags: [
+      "Laravel",
+      "SQL Server",
+      "ERP",
+      "POS",
+      "Inventory Management",
+      "RBAC"
+    ],
+    category: "Enterprise Resource Planning (ERP)",
+    year: "2025",
+    featured: true,
+    status: "completed",
+    demoText: "Demo Available on Request",
+  },
+  {
+    id: 12,
+    title: "ArenaX",
+    image: "/mocks/arenax.webp",
+    description:
+      "A gaming and event management platform developed with Laravel and MySQL, featuring secure online ticket purchases, event registration, real-time sales analytics, digital entry-card generation for participants, and an administrative dashboard for managing events and customer registrations.",
+    tags: [
+      "Laravel",
+      "MySQL",
+      "E-commerce",
+      "Event Management",
+      "Analytics",
+      "RBAC"
+    ],
+    category: "Gaming & Event Management Platform",
+    year: "2025",
+    featured: false,
+    status: "completed",
+    demoText: "Demo Available on Request",
+  }
 ];
 
 export const experiences: Experience[] = [
