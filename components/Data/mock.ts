@@ -323,7 +323,26 @@ export const projects: Project[] = [
     featured: false,
     status: "completed",
     demoText: "Demo Available on Request",
-  }
+  },
+  {
+  id: 13,
+  title: "Algo Soft Tech",
+  image: "/mocks/algosofttech.webp",
+  description:
+    "A modern corporate website for a software development company, designed and developed using Laravel, Blade, and MySQL. Built a responsive, SEO-friendly frontend with dynamic content management, service pages, portfolio showcase, contact forms, and an administrative panel for managing website content.",
+  tags: [
+    "Laravel",
+    "Blade",
+    "MySQL",
+    "Bootstrap",
+    "JavaScript"
+  ],
+  category: "Corporate Website",
+  year: "2024",
+  link: "https://www.algosofttech.com/",
+  featured: false,
+  status: "completed",
+}
 ];
 
 export const experiences: Experience[] = [
