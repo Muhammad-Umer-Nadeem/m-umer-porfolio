@@ -26,9 +26,11 @@ interface Project {
   tags: string[];
   category: string;
   year: string | number;
-  link: string;
+  link?: string; // <-- Optional now
   status: ProjectStatus;
   featured: boolean;
+
+  demoText?: string;
 }
 
 interface StatusConfig {
@@ -144,11 +146,11 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({ project, index }) => 
         delay: index * 0.15,
         ease: [0.22, 1, 0.36, 1],
       }}
-      className="group"
+      className="group h-full"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <div className="relative overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800">
+      <div className="relative overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800 h-full flex flex-col">
         {/* Project visual area */}
         <div
           className={`relative h-64 md:h-80 bg-linear-to-br ${gradients[index % 3]} overflow-hidden`}
@@ -221,26 +223,31 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({ project, index }) => 
             className="absolute top-6 right-8 z-10"
             animate={
               hovered
-                ? { scale: 1.2, rotate: 0 }
-                : { scale: 1, rotate: 0 }
+                ? { scale: 1.2 }
+                : { scale: 1 }
             }
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <Link
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cursor="View"
-              className="w-12 h-12 rounded-full bg-[#FAFAFA] dark:bg-[#0A0A0A] border border-neutral-200 dark:border-neutral-700 flex items-center justify-center text-neutral-700 dark:text-neutral-300 hover:bg-neutral-900 dark:hover:bg-white hover:text-white dark:hover:text-black hover:border-neutral-900 dark:hover:border-white transition-colors duration-300"
-              aria-label={`View ${project.title} project`}
-            >
-              <ArrowUpRight size={18} />
-            </Link>
+            {project.link ? (
+              <Link
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-cursor="View"
+                className="w-12 h-12 rounded-full bg-[#FAFAFA] dark:bg-[#0A0A0A] border border-neutral-200 dark:border-neutral-700 flex items-center justify-center text-neutral-700 dark:text-neutral-300 hover:bg-neutral-900 dark:hover:bg-white hover:text-white dark:hover:text-black hover:border-neutral-900 dark:hover:border-white transition-colors duration-300"
+              >
+                <ArrowUpRight size={18} />
+              </Link>
+            ) : (
+              <div className="rounded-full bg-[#FAFAFA] dark:bg-[#0A0A0A] border border-neutral-200 dark:border-neutral-700 px-4 py-2 text-xs font-medium whitespace-nowrap text-neutral-700 dark:text-neutral-300">
+                🔒 {project.demoText ?? "Demo Available on Request"}
+              </div>
+            )}
           </motion.div>
         </div>
 
         {/* Content */}
-        <div className="p-8 bg-white dark:bg-neutral-900">
+        <div className="p-8 bg-white dark:bg-neutral-900 flex-1">
           <div className="flex items-center gap-3 mb-3">
             <span className="text-xs font-mono tracking-wider uppercase text-neutral-400 dark:text-neutral-500">
               {project.category}
@@ -288,30 +295,38 @@ const SmallProjectCard: React.FC<SmallProjectCardProps> = ({
       transition={{ duration: 0.6, delay: index * 0.1 }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="group relative p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 hover:border-neutral-400 dark:hover:border-neutral-600 transition-colors duration-300"
+      className="group relative p-6 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 hover:border-neutral-400 dark:hover:border-neutral-600 transition-colors duration-300 h-full flex flex-col"
     >
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-2 flex-wrap">
           <span className="text-xs font-mono tracking-wider text-neutral-400 dark:text-neutral-500">
-            {project.category} 
+            {project.category}
             {/* / {project.year} */}
           </span>
           <StatusBadge status={project.status} />
         </div>
-        <motion.div
-          animate={hovered ? { rotate: 45 } : { rotate: 0 }}
-          aria-hidden="true"
-        >
-          <ArrowUpRight
-            size={16}
-            className="text-neutral-400 dark:text-neutral-500"
-          />
-        </motion.div>
+        {project.link ? (
+          <motion.div
+            animate={hovered ? { rotate: 45 } : { rotate: 0 }}
+          >
+            <ArrowUpRight
+              size={16}
+              className="text-neutral-400 dark:text-neutral-500"
+            />
+          </motion.div>
+        ) : (
+          <Badge
+            variant="outline"
+            className="text-[10px]"
+          >
+            🔒 {project.demoText ?? "Demo Available"}
+          </Badge>
+        )}
       </div>
       <h4 className="text-lg font-bold text-neutral-900 dark:text-white mb-2">
         {project.title}
       </h4>
-      <p className="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed mb-4">
+      <p className="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed mb-4 flex-1">
         {project.description}
       </p>
       <div className="flex flex-wrap gap-1.5">
@@ -438,7 +453,7 @@ const Projects: React.FC = () => {
         </div>
 
         {/* Featured projects */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 items-stretch">
           {featured.map((project: Project, index: number) => (
             <FeaturedProject
               key={project.id}
@@ -461,16 +476,21 @@ const Projects: React.FC = () => {
         </motion.div>
         <div className="grid md:grid-cols-3 gap-4 mb-16">
           {others.map((project: Project, index: number) => (
-            <Link
-              key={project.id}
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block"
-              aria-label={`View ${project.title} project`}
-            >
-              <SmallProjectCard project={project} index={index} />
-            </Link>
+            project.link ? (
+              <Link
+                key={project.id}
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block h-full"
+              >
+                <SmallProjectCard project={project} index={index} />
+              </Link>
+            ) : (
+              <div key={project.id} className="block h-full">
+                <SmallProjectCard project={project} index={index} />
+              </div>
+            )
           ))}
         </div>
 
