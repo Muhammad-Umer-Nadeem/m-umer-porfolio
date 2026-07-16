@@ -325,24 +325,24 @@ export const projects: Project[] = [
     demoText: "Demo Available on Request",
   },
   {
-  id: 13,
-  title: "Algo Soft Tech",
-  image: "/mocks/algosofttech.webp",
-  description:
-    "A modern corporate website for a software development company, designed and developed using Laravel, Blade, and MySQL. Built a responsive, SEO-friendly frontend with dynamic content management, service pages, portfolio showcase, contact forms, and an administrative panel for managing website content.",
-  tags: [
-    "Laravel",
-    "Blade",
-    "MySQL",
-    "Bootstrap",
-    "JavaScript"
-  ],
-  category: "Corporate Website",
-  year: "2024",
-  link: "https://www.algosofttech.com/",
-  featured: false,
-  status: "completed",
-}
+    id: 13,
+    title: "Algo Soft Tech",
+    image: "/mocks/algosofttech.webp",
+    description:
+      "A modern corporate website for a software development company, designed and developed using Laravel, Blade, and MySQL. Built a responsive, SEO-friendly frontend with dynamic content management, service pages, portfolio showcase, contact forms, and an administrative panel for managing website content.",
+    tags: [
+      "Laravel",
+      "Blade",
+      "MySQL",
+      "Bootstrap",
+      "JavaScript"
+    ],
+    category: "Corporate Website",
+    year: "2024",
+    link: "https://www.algosofttech.com/",
+    featured: false,
+    status: "completed",
+  }
 ];
 
 export const experiences: Experience[] = [
@@ -425,31 +425,49 @@ export const testimonials: Testimonial[] = [
     id: 1,
     name: "Sheryaar Baig",
     role: "CEO, SYB Business Ecosystem",
-    text: "Umer is a rare talent who combines sharp technical skill with genuine care for his clients. He's been instrumental in bringing our digital ecosystem to life.",
+    text: "Umer has played a key role in developing multiple products across our ecosystem. From backend architecture and database design to production deployment, he consistently delivers scalable, reliable solutions and takes ownership of every stage of development.",
   },
   {
     id: 2,
-    name: "Jamil Khan",
-    role: "CEO, DiscountOye",
-    text: "Umer understood our vision instantly and built an experience that truly represents DiscountOye. His dedication and attention to detail are unmatched.",
+    name: "M. Nabeel",
+    role: "CEO, Algo Soft Tech",
+    text: "Umer consistently delivered high-quality Laravel solutions, from enterprise ERP systems to client websites. His problem-solving ability, code quality, and commitment to delivering projects on time made him a valuable member of our engineering team.",
   },
   {
     id: 3,
-    name: "Siddharth Oak",
-    role: "Website Operations, ApplyVisas",
-    text: "Umer brought structure, polish, and real reliability to our operations. Working with him has been an absolute pleasure, precise, and always on point.",
+    name: "M. Shafiq",
+    role: "Owner, Super Max Filters",
+    text: "Umer developed a powerful product catalog platform that made managing our products significantly easier. The advanced search, filtering, and admin panel greatly improved both our internal workflow and customer experience.",
   },
   {
     id: 4,
-    name: "Humaira Qasim",
-    role: "Founder, SYB Hedayat",
-    text: "Umer approached our project with genuine empathy and care. He built something beautiful and meaningful for our community, we're truly grateful.",
+    name: "M. Sohail",
+    role: "Partner, ArenaX",
+    text: "Umer transformed our requirements into a reliable eCommerce and event management platform. His technical expertise and attention to detail ensured a smooth development process and a solid final product.",
   },
   {
     id: 5,
-    name: "Scott Blanchard",
-    role: "Founder, Inspire Interiors",
-    text: "Umer captured the soul of Inspire Interiors perfectly in our website. Creative, responsive, and a true professional from start to finish.",
+    name: "M. Arshad",
+    role: "Manager, Textile Import Solutions",
+    text: "Working closely with Umer throughout the ERP development process was a great experience. He understood our operational requirements, provided practical technical solutions, and delivered a system that streamlined our inventory and sales operations.",
+  },
+  {
+    id: 6,
+    name: "Humaira Qasim",
+    role: "Founder, SYB Hedayat",
+    text: "Umer developed our learning platform with professionalism and care. The teacher, student, and administration workflows were implemented thoughtfully, making the platform easy to manage and scale.",
+  },
+  {
+    id: 7,
+    name: "Siddharth Oak",
+    role: "Website Operations, ApplyVisas",
+    text: "Umer delivered a well-structured and responsive platform that improved how we manage content and client inquiries. His communication and technical execution were excellent throughout the project.",
+  },
+  {
+    id: 8,
+    name: "Jamil Khan",
+    role: "CEO, DiscountOye",
+    text: "Umer developed a custom Shopify solution tailored to our business requirements. His focus on performance, user experience, and advanced product filtering resulted in a faster, more scalable storefront that supports our day-to-day operations.",
   },
 ];
 

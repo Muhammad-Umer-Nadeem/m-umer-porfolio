@@ -63,8 +63,8 @@ const TestimonialsMarquee: React.FC = () => {
 
       <div className="relative">
         {/* Gradient overlays */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-neutral-50 dark:from-neutral-950 to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-neutral-50 dark:from-neutral-950 to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-32 bg-linear-to-r from-neutral-50 dark:from-neutral-950 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-32 bg-linear-to-l from-neutral-50 dark:from-neutral-950 to-transparent z-10 pointer-events-none" />
 
         {/* Marquee */}
         <motion.div
@@ -79,7 +79,7 @@ const TestimonialsMarquee: React.FC = () => {
           {doubled.map((testimonial: Testimonial, index: number) => (
             <div
               key={`testimonial-${index}`}
-              className="w-[420px] flex-shrink-0 p-8 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors duration-300"
+              className="w-105 shrink-0 p-8 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors duration-300"
             >
               <Quote
                 size={20}
@@ -125,7 +125,7 @@ const ScrollProgress: React.FC<ScrollProgressProps> = () => {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 right-0 h-[2px] bg-neutral-900 dark:bg-white origin-left z-[60]"
+      className="fixed top-0 left-0 right-0 h-0.5 bg-neutral-900 dark:bg-white origin-left z-60"
       style={{ scaleX }}
       aria-hidden="true"
     />
