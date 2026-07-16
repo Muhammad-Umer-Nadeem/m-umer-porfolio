@@ -502,7 +502,7 @@ const Projects: React.FC = () => {
           className="text-center"
         >
           <Link
-            href="https://github.com/sarib2005"
+            href="https://github.com/Muhammad-Umer-Nadeem"
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-2 text-sm font-medium text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors duration-300"
