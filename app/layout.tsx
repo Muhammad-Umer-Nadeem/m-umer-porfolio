@@ -8,7 +8,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import { inter, spaceGrotesk, jetbrainsMono } from './fonts'
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://m-umer-porfolio.vercel.app"),
+  metadataBase: new URL("https://m-umer-portfolio.vercel.app/"),
   title: "Muhammad Umer Nadeem | Software Engineer | Laravel & Backend Developer",
   description:
     "Backend-focused Software Engineer specializing in Laravel, PHP, MySQL, RESTful APIs, scalable SaaS applications, ERP systems, and modern full-stack web development.",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
       "Muhammad Umer Nadeem | Software Engineer | Laravel & Backend Developer",
     description:
       "Building scalable SaaS platforms, business applications, RESTful APIs, and modern web solutions using Laravel, PHP, MySQL, React, and cloud infrastructure.",
-    url: "https://m-umer-porfolio.vercel.app",
+    url: "https://m-umer-portfolio.vercel.app/",
     siteName: "Muhammad Umer Nadeem",
     images: [{ url: "/img/og-image.png", width: 1200, height: 630 }],
     type: "website",
@@ -95,7 +95,7 @@ export default function RootLayout({
               "@type": "Person",
               name: "Muhammad Umer Nadeem",
               jobTitle: "Software Engineer",
-              url: "https://m-umer-porfolio.vercel.app",
+              url: "https://m-umer-portfolio.vercel.app/",
               email: "mailto:umernadeem005@gmail.com",
               address: {
                 "@type": "PostalAddress",
