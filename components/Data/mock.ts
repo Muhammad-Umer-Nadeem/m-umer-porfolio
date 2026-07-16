@@ -460,8 +460,8 @@ export const testimonials: Testimonial[] = [
   {
     id: 7,
     name: "Siddharth Oak",
-    role: "Website Operations, ApplyVisas",
-    text: "Umer delivered a well-structured and responsive platform that improved how we manage content and client inquiries. His communication and technical execution were excellent throughout the project.",
+    role: "Operations Manager, SYB Business Ecosystem",
+    text: "Umer delivered a well-structured and responsive platform that improved how we manage content and client inquiries. His communication and technical execution were excellent throughout all our projects.",
   },
   {
     id: 8,
