@@ -1,15 +1,6 @@
 // lib/mail.ts
 import nodemailer from "nodemailer";
 
-// Log environment variable status during module initialization
-console.log('Mail module loaded - GMAIL_USER exists:', !!process.env.GMAIL_USER);
-console.log('Mail module loaded - GMAIL_APP_PASSWORD exists:', !!process.env.GMAIL_APP_PASSWORD);
-
-// Validate environment variables
-if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
-  console.error('Missing email credentials in environment variables');
-}
-
 export const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -28,7 +19,6 @@ export const transporter = nodemailer.createTransport({
 export async function verifyEmailConfig() {
     try {
         await transporter.verify();
-        console.log('Email configuration verified successfully');
         return { success: true };
     } catch (error: unknown) {
         console.error('Email verification failed:', error);

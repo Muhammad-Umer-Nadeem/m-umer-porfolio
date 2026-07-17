@@ -9,7 +9,6 @@ export async function POST(request: NextRequest) {
     const verifyResult = await verifyEmailConfig();
     if (!verifyResult.success) {
         console.error('Email configuration error:', verifyResult.error);
-        // Continue anyway, but log the error
     }
 
     try {
@@ -67,8 +66,6 @@ export async function POST(request: NextRequest) {
                 INSERT INTO contacts (name, email, message)
                 VALUES (${sanitizedName}, ${sanitizedEmail}, ${sanitizedMessage})
             `;
-
-            console.log('Contact saved to database');
         } catch (dbError) {
             console.error('Database error (continuing anyway):', dbError);
             // Continue even if database fails - email is more important
@@ -76,9 +73,6 @@ export async function POST(request: NextRequest) {
 
         // Send notification email
         try {
-            console.log('Attempting to send email...');
-            console.log('From:', `"Portfolio Contact" <${process.env.GMAIL_USER}>`);
-            console.log('To:', process.env.GMAIL_USER);
             
             const mailOptions = {
                 from: `"Portfolio Contact" <${process.env.GMAIL_USER}>`,
